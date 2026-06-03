@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Views.ReadersPage"
+             Title="Список читателей"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="15">
+        <Label Text="Зарегистрированные читатели" FontSize="24" FontAttributes="Bold" Margin="0,0,0,15" TextColor="Black" />
+
+        <CollectionView x:Name="ReadersCollection">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="#2C3E50" StrokeThickness="2" StrokeShape="RoundRectangle 8" Padding="15" BackgroundColor="White">
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="15">
+                            <Image Grid.Column="0" Source="dotnet_bot.png" WidthRequest="50" HeightRequest="50" BackgroundColor="#F5F5F5" />
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="{Binding FullName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+                                <Label Text="{Binding CardNumber, StringFormat='Билет: №{0}'}" TextColor="#2C3E50" FontAttributes="Bold" FontSize="14" />
+                                <Label Text="{Binding Phone}" TextColor="#2C3E50" FontSize="14" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Views.IssueBookPage"
+             Title="Выдача книги"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Оформление выдачи" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Выберите книгу" TextColor="Black" FontAttributes="Bold" />
+                <Picker x:Name="PickerBook" Title="Нажмите для выбора" TextColor="Black" BackgroundColor="#F5F5F5">
+                    <Picker.Items>
+                        <x:String>Война и мир (Доступна)</x:String>
+                        <x:String>Преступление и наказание (Доступна)</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Выберите читателя" TextColor="Black" FontAttributes="Bold" />
+                <Picker x:Name="PickerReader" Title="Нажмите для выбора" TextColor="Black" BackgroundColor="#F5F5F5">
+                    <Picker.Items>
+                        <x:String>Иванов И.И. (Билет №123)</x:String>
+                        <x:String>Петрова А.С. (Билет №456)</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Дата выдачи" TextColor="Black" FontAttributes="Bold" />
+                <DatePicker x:Name="DatePickerIssue" TextColor="Black" BackgroundColor="#F5F5F5" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Планируемая дата возврата" TextColor="Black" FontAttributes="Bold" />
+                <DatePicker x:Name="DatePickerReturn" TextColor="Black" BackgroundColor="#F5F5F5" />
+            </VerticalStackLayout>
+
+            <Button Text="Выдать книгу" Clicked="OnIssueBookClicked" BackgroundColor="#27AE60" TextColor="White" CornerRadius="8" FontSize="18" FontAttributes="Bold" HeightRequest="55" />
+
+            <Label x:Name="LabelResult" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="16" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

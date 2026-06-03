@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Views.CatalogPage"
+             Title="Каталог книг"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="Auto, *">
+        <!-- Поиск -->
+        <SearchBar Grid.Row="0" 
+                   Placeholder="Поиск по названию или автору..." 
+                   TextChanged="OnSearchTextChanged"
+                   TextColor="Black"
+                   PlaceholderColor="Gray" />
+
+        <!-- Список книг -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="15" Spacing="15" x:Name="BooksList">
+
+                <!-- Карточка книги 1 -->
+                <Border Stroke="#2C3E50" StrokeThickness="2" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                    <Grid Padding="15" ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Война и мир" FontSize="22" FontAttributes="Bold" TextColor="Black" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Доступна" TextColor="Green" FontAttributes="Bold" FontSize="16" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Л.Н. Толстой, 1869 г." TextColor="#2C3E50" FontAttributes="Bold" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Классика" FontSize="14" TextColor="#2C3E50" FontAttributes="Bold" />
+
+                        <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="2" Spacing="10" Margin="0,10,0,0">
+                            <BoxView Color="#2C3E50" WidthRequest="2" VerticalOptions="Fill" />
+                            <Label Text="Статус:" VerticalOptions="Center" FontAttributes="Bold" TextColor="Black" />
+                            <Switch IsToggled="True" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Карточка книги 2 -->
+                <Border Stroke="#2C3E50" StrokeThickness="2" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                    <Grid Padding="15" ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Мастер и Маргарита" FontSize="22" FontAttributes="Bold" TextColor="Black" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Выдана" TextColor="Red" FontAttributes="Bold" FontSize="16" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="М.А. Булгаков, 1967 г." TextColor="#2C3E50" FontAttributes="Bold" />
+                    </Grid>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

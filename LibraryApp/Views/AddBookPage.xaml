@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryApp.Views.AddBookPage"
+             Title="Добавить книгу"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Регистрация новой книги" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Название книги" TextColor="Black" FontAttributes="Bold" />
+                <Entry x:Name="EntryTitle" Placeholder="Введите название" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="#F5F5F5" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Автор" TextColor="Black" FontAttributes="Bold" />
+                <Entry x:Name="EntryAuthor" Placeholder="Фамилия И.О." TextColor="Black" PlaceholderColor="Gray" BackgroundColor="#F5F5F5" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Жанр" TextColor="Black" FontAttributes="Bold" />
+                <Picker x:Name="PickerGenre" TextColor="Black" BackgroundColor="#F5F5F5">
+                    <Picker.Items>
+                        <x:String>Классика</x:String>
+                        <x:String>Фантастика</x:String>
+                        <x:String>Детектив</x:String>
+                        <x:String>Научная литература</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Год издания" TextColor="Black" FontAttributes="Bold" />
+                <DatePicker x:Name="DatePickerYear" Format="yyyy" TextColor="Black" BackgroundColor="#F5F5F5" />
+            </VerticalStackLayout>
+
+            <Button Text="Сохранить книгу" Clicked="OnSaveBookClicked" BackgroundColor="#2C3E50" TextColor="White" CornerRadius="8" FontSize="18" FontAttributes="Bold" HeightRequest="55" />
+
+            <!-- Индикатор активности -->
+            <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" Color="#2C3E50" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
