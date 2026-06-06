@@ -6,18 +6,15 @@
              BackgroundColor="White">
 
     <Grid RowDefinitions="Auto, *">
-        <!-- Поиск -->
         <SearchBar Grid.Row="0" 
                    Placeholder="Поиск по названию или автору..." 
                    TextChanged="OnSearchTextChanged"
                    TextColor="Black"
                    PlaceholderColor="Gray" />
 
-        <!-- Список книг -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="15" Spacing="15" x:Name="BooksList">
 
-                <!-- Карточка книги 1 -->
                 <Border Stroke="#2C3E50" StrokeThickness="2" StrokeShape="RoundRectangle 10" BackgroundColor="White">
                     <Grid Padding="15" ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto">
                         <Label Grid.Row="0" Grid.Column="0" Text="Война и мир" FontSize="22" FontAttributes="Bold" TextColor="Black" />
@@ -34,7 +31,6 @@
                     </Grid>
                 </Border>
 
-                <!-- Карточка книги 2 -->
                 <Border Stroke="#2C3E50" StrokeThickness="2" StrokeShape="RoundRectangle 10" BackgroundColor="White">
                     <Grid Padding="15" ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto">
                         <Label Grid.Row="0" Grid.Column="0" Text="Мастер и Маргарита" FontSize="22" FontAttributes="Bold" TextColor="Black" />

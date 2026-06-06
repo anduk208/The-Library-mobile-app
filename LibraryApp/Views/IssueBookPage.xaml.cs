@@ -15,19 +15,17 @@ public partial class IssueBookPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        LoadData(); // Перезагружаем данные
+        LoadData();
     }
 
     private void LoadData()
     {
-        // Загружаем только доступные книги
         PickerBook.Items.Clear();
         foreach (var book in LibraryDataService.Books.Where(b => b.IsAvailable))
         {
             PickerBook.Items.Add(book.Title);
         }
 
-        // Загружаем всех читателей
         PickerReader.Items.Clear();
         foreach (var reader in LibraryDataService.Readers)
         {
@@ -47,7 +45,6 @@ public partial class IssueBookPage : ContentPage
         string selectedBook = PickerBook.Items[PickerBook.SelectedIndex];
         string selectedReader = PickerReader.Items[PickerReader.SelectedIndex];
 
-        // Проверяем даты
         if (!DatePickerIssue.Date.HasValue || !DatePickerReturn.Date.HasValue)
         {
             LabelResult.TextColor = Colors.Red;
@@ -55,7 +52,6 @@ public partial class IssueBookPage : ContentPage
             return;
         }
 
-        // РЕАЛЬНАЯ ВЫДАЧА!
         bool success = LibraryDataService.IssueBook(selectedBook, selectedReader);
 
         if (success)
@@ -68,7 +64,6 @@ public partial class IssueBookPage : ContentPage
 
             await DisplayAlert("Успех", $"Книга успешно выдана!\nДата выдачи: {issueDate}\nДата возврата: {returnDate}", "OK");
 
-            // Перезагружаем списки
             LoadData();
         }
         else

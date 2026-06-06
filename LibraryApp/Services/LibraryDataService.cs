@@ -5,14 +5,11 @@ namespace LibraryApp.Services;
 
 public static class LibraryDataService
 {
-    // Коллекции для хранения данных
     public static ObservableCollection<Book> Books { get; } = new ObservableCollection<Book>();
     public static ObservableCollection<Reader> Readers { get; } = new ObservableCollection<Reader>();
 
-    // Статический конструктор - добавляем начальные данные
     static LibraryDataService()
     {
-        // Начальные книги
         Books.Add(new Book
         {
             Title = "Война и мир",
@@ -40,7 +37,6 @@ public static class LibraryDataService
             IsAvailable = true
         });
 
-        // Начальные читатели
         Readers.Add(new Reader
         {
             FullName = "Иванов Иван Иванович",
@@ -56,19 +52,16 @@ public static class LibraryDataService
         });
     }
 
-    // Метод добавления книги
     public static void AddBook(Book book)
     {
         Books.Add(book);
     }
 
-    // Метод добавления читателя
     public static void AddReader(Reader reader)
     {
         Readers.Add(reader);
     }
 
-    // Метод выдачи книги
     public static bool IssueBook(string bookTitle, string readerName)
     {
         var book = Books.FirstOrDefault(b => b.Title == bookTitle && b.IsAvailable);

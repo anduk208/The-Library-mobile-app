@@ -13,7 +13,7 @@ public partial class CatalogPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        LoadBooks(); // Перезагружаем книги при каждом открытии страницы
+        LoadBooks();
     }
 
     private void LoadBooks()
@@ -47,7 +47,6 @@ public partial class CatalogPage : ContentPage
                 }
             };
 
-            // Название книги
             var titleLabel = new Label
             {
                 Text = book.Title,
@@ -59,7 +58,6 @@ public partial class CatalogPage : ContentPage
             Grid.SetColumn(titleLabel, 0);
             grid.Children.Add(titleLabel);
 
-            // Статус
             var statusLabel = new Label
             {
                 Text = book.IsAvailable ? "Доступна" : "Выдана",
@@ -71,7 +69,6 @@ public partial class CatalogPage : ContentPage
             Grid.SetColumn(statusLabel, 1);
             grid.Children.Add(statusLabel);
 
-            // Автор и год
             var authorLabel = new Label
             {
                 Text = $"{book.Author}, {book.Year} г.",
@@ -82,7 +79,6 @@ public partial class CatalogPage : ContentPage
             Grid.SetColumn(authorLabel, 0);
             grid.Children.Add(authorLabel);
 
-            // Жанр
             var genreLabel = new Label
             {
                 Text = book.Genre,
@@ -101,7 +97,6 @@ public partial class CatalogPage : ContentPage
 
     private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
     {
-        // Простая реализация поиска
         string searchText = e.NewTextValue?.ToLower() ?? "";
 
         BooksList.Children.Clear();

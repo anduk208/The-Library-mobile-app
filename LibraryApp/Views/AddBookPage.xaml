@@ -38,7 +38,6 @@
 
             <Button Text="Сохранить книгу" Clicked="OnSaveBookClicked" BackgroundColor="#2C3E50" TextColor="White" CornerRadius="8" FontSize="18" FontAttributes="Bold" HeightRequest="55" />
 
-            <!-- Индикатор активности -->
             <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" Color="#2C3E50" />
         </VerticalStackLayout>
     </ScrollView>

@@ -13,7 +13,6 @@ public partial class AddBookPage : ContentPage
 
     private async void OnSaveBookClicked(object sender, EventArgs e)
     {
-        // Валидация
         if (string.IsNullOrWhiteSpace(EntryTitle.Text) || string.IsNullOrWhiteSpace(EntryAuthor.Text))
         {
             await DisplayAlert("Ошибка", "Пожалуйста, заполните название и автора!", "OK");
@@ -26,23 +25,20 @@ public partial class AddBookPage : ContentPage
             return;
         }
 
-        // Проверяем, что дата выбрана
         if (!DatePickerYear.Date.HasValue)
         {
             await DisplayAlert("Ошибка", "Выберите год издания!", "OK");
             return;
         }
 
-        // Имитация загрузки
         LoadingIndicator.IsRunning = true;
         await Task.Delay(500);
 
-        // РЕАЛЬНОЕ СОХРАНЕНИЕ!
         var newBook = new Book
         {
             Title = EntryTitle.Text.Trim(),
             Author = EntryAuthor.Text.Trim(),
-            Year = DatePickerYear.Date.Value.Year, // БЕЗОПАСНО: проверили HasValue выше
+            Year = DatePickerYear.Date.Value.Year,
             Genre = PickerGenre.Items[PickerGenre.SelectedIndex],
             IsAvailable = true
         };
@@ -53,7 +49,6 @@ public partial class AddBookPage : ContentPage
 
         await DisplayAlert("Успех", $"Книга '{newBook.Title}' успешно добавлена в каталог!", "OK");
 
-        // Очистка полей
         EntryTitle.Text = "";
         EntryAuthor.Text = "";
         PickerGenre.SelectedIndex = -1;

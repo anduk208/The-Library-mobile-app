@@ -13,7 +13,7 @@ public partial class ReadersPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        LoadReaders(); // Перезагружаем при каждом открытии
+        LoadReaders();
     }
 
     private void LoadReaders()

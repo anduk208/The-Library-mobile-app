@@ -4,13 +4,11 @@
              x:Class="LibraryApp.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Цвета - более темные -->
             <Color x:Key="PrimaryColor">#2C3E50</Color>
             <Color x:Key="SecondaryColor">#1a1a1a</Color>
             <Color x:Key="BackgroundColor">White</Color>
             <Color x:Key="CardBackgroundColor">White</Color>
 
-            <!-- Стили -->
             <Style TargetType="Page" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
             </Style>
